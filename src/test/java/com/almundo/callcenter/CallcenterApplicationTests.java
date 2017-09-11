@@ -50,7 +50,43 @@ public class CallcenterApplicationTests {
 		Call call = new Call();
 		dispatcher.receiveCall(call);
 		dispatcher.start();
-		Assert.assertTrue(dispatcher.verifyEmployeesOnCall() == 1);
 	}
+
+	@Test
+	public void assign10Calls(){
+		generate10Calls();
+		dispatcher.start();
+	}
+
+	@Test
+	public void assignMoreThan10Calls(){
+		generate10Calls();
+		generate10Calls();
+		dispatcher.start();
+	}
+
+	private void generate10Calls() {
+		Call call1 = new Call();
+		Call call2 = new Call();
+		Call call3 = new Call();
+		Call call4 = new Call();
+		Call call5 = new Call();
+		Call call6 = new Call();
+		Call call7 = new Call();
+		Call call8 = new Call();
+		Call call9 = new Call();
+		Call call10 = new Call();
+		dispatcher.receiveCall(call1);
+		dispatcher.receiveCall(call2);
+		dispatcher.receiveCall(call3);
+		dispatcher.receiveCall(call4);
+		dispatcher.receiveCall(call5);
+		dispatcher.receiveCall(call6);
+		dispatcher.receiveCall(call7);
+		dispatcher.receiveCall(call8);
+		dispatcher.receiveCall(call9);
+		dispatcher.receiveCall(call10);
+	}
+
 
 }

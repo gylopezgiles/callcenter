@@ -44,7 +44,8 @@ public class Dispatcher {
     private void dispatchCall(Call call) {
         try {
             Employee employee = employeers.take();
-            System.out.println("Toma la llamada el " + employee.getRole() + " :" + employee.getId());
+            System.out.println("Toma la llamada el " + employee.getRole());
+            System.out.println("id :" + employee.getId());
             employeersOnCall.put(employee.getId(), employee);
             Runnable callback = () -> makeEmployeeAvailable(employee);
             employee.answerCall(call, callback);
@@ -61,7 +62,4 @@ public class Dispatcher {
         employeers.add(employee);
     }
 
-    public int verifyEmployeesOnCall(){
-        return employeersOnCall.size();
-    }
 }
